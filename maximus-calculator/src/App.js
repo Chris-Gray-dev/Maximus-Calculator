@@ -1,11 +1,10 @@
+import MaximusForm from "./Components/MaximusForm"
 function App() 
 {
 
   return (
     <div>
-      <header >
-        Maximus Calc WIP
-      </header>
+        <MaximusForm/>
     </div>
   );
 }
