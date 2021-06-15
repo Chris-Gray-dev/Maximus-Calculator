@@ -75,32 +75,45 @@ function MaximusForm()
                     <FormControlLabel value={ADVANTAGE} control={<Radio />} name="advantage" label="Advantage" />
                     <FormControlLabel value={DISADVANTAGE} control={<Radio />} name="advantage" label="Disadvantage" />
                 </RadioGroup>
-                <br></br>
+
+                <br/>
+
                 <FormLabel component="legend">Modifiers</FormLabel>
-                <FormControlLabel
-                    control={<Switch checked={state.divineFury} onChange={handleChange} name="divineFury" />}
-                    label="Divine Fury"
-                />
+                
+                <br/>
+
+                <FormLabel component="legend">Every hit</FormLabel>
                 <FormControlLabel
                     control={<Switch checked={state.rage} onChange={handleChange} name="rage" />}
-                    label="Rage"
-                />
-                <FormControlLabel
-                    control={<Switch checked={state.giantsMight} onChange={handleChange} name="giantsMight" />}
-                    label="Giants Might"
+                    label="Rage (+2 bludgeoning)"
                 />
                 <FormControlLabel
                     control={<Switch checked={state.eldritchMaul} onChange={handleChange} name="eldritchMaul" />}
-                    label="Eldritch Maul"
-                />
-                <FormControlLabel
-                    control={<Switch checked={state.radiantConsumption} onChange={handleChange} name="radiantConsumption" />}
-                    label="Radiant Consumption"
+                    label="Eldritch Maul (+1d6 force)"
                 />
                 <FormControlLabel
                     control={<Switch checked={state.potionOfGrowth} onChange={handleChange} name="potionOfGrowth" />}
-                    label="Potion of Growth"
+                    label="Potion of Growth (+1d4 bludegoning)"
                 />
+
+                <br/>
+                
+                <FormLabel component="legend">Once per turn</FormLabel>
+                <FormControlLabel
+                    control={<Switch checked={state.divineFury} onChange={handleChange} name="divineFury" />}
+                    label="Divine Fury (+1d6+4 radiant)"
+                />
+                <FormControlLabel
+                    control={<Switch checked={state.giantsMight} onChange={handleChange} name="giantsMight" />}
+                    label="Giants Might (+1d6 bludgeoning)"
+                />
+                <FormControlLabel
+                    control={<Switch checked={state.radiantConsumption} onChange={handleChange} name="radiantConsumption" />}
+                    label="Radiant Consumption (+11 radiant)"
+                />
+
+                <br/>
+                
                 <div className={classes.root}>
                     <Button variant="contained" color="primary" onClick={roll} >Roll</Button>
                     <Button variant="contained" onClick={reset}>Reset</Button>
