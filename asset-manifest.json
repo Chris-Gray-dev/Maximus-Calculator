@@ -1,17 +1,21 @@
 {
   "files": {
-    "main.js": "/Maximus-Calculator/static/js/main.8c8aa2fc.chunk.js",
-    "main.js.map": "/Maximus-Calculator/static/js/main.8c8aa2fc.chunk.js.map",
+    "main.js": "/Maximus-Calculator/static/js/main.7845df20.chunk.js",
+    "main.js.map": "/Maximus-Calculator/static/js/main.7845df20.chunk.js.map",
     "runtime-main.js": "/Maximus-Calculator/static/js/runtime-main.0a72ed2e.js",
     "runtime-main.js.map": "/Maximus-Calculator/static/js/runtime-main.0a72ed2e.js.map",
-    "static/js/2.fe28a189.chunk.js": "/Maximus-Calculator/static/js/2.fe28a189.chunk.js",
-    "static/js/2.fe28a189.chunk.js.map": "/Maximus-Calculator/static/js/2.fe28a189.chunk.js.map",
+    "static/css/2.4a3b0c44.chunk.css": "/Maximus-Calculator/static/css/2.4a3b0c44.chunk.css",
+    "static/js/2.dc739ee7.chunk.js": "/Maximus-Calculator/static/js/2.dc739ee7.chunk.js",
+    "static/js/2.dc739ee7.chunk.js.map": "/Maximus-Calculator/static/js/2.dc739ee7.chunk.js.map",
     "index.html": "/Maximus-Calculator/index.html",
-    "static/js/2.fe28a189.chunk.js.LICENSE.txt": "/Maximus-Calculator/static/js/2.fe28a189.chunk.js.LICENSE.txt"
+    "static/css/2.4a3b0c44.chunk.css.map": "/Maximus-Calculator/static/css/2.4a3b0c44.chunk.css.map",
+    "static/js/2.dc739ee7.chunk.js.LICENSE.txt": "/Maximus-Calculator/static/js/2.dc739ee7.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/Maximus-Calculator/static/media/roboto-vietnamese-400-normal.c0bec65d.woff2"
   },
   "entrypoints": [
     "static/js/runtime-main.0a72ed2e.js",
-    "static/js/2.fe28a189.chunk.js",
-    "static/js/main.8c8aa2fc.chunk.js"
+    "static/css/2.4a3b0c44.chunk.css",
+    "static/js/2.dc739ee7.chunk.js",
+    "static/js/main.7845df20.chunk.js"
   ]
 }

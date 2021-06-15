@@ -1,2 +1,0 @@
-(this["webpackJsonpmaximus-calculator"]=this["webpackJsonpmaximus-calculator"]||[]).push([[0],{9:function(e,c,t){"use strict";t.r(c);var r=t(1),a=t.n(r),n=t(3),s=t.n(n),i=t(0);var u=function(){return Object(i.jsx)("div",{children:Object(i.jsx)("header",{children:"Maximus Calc WIP"})})};s.a.render(Object(i.jsx)(a.a.StrictMode,{children:Object(i.jsx)(u,{})}),document.getElementById("root"))}},[[9,1,2]]]);
-//# sourceMappingURL=main.8c8aa2fc.chunk.js.map
