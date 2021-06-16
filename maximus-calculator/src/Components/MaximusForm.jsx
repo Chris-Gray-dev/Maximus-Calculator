@@ -11,15 +11,11 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Switch from '@material-ui/core/Switch';
 import Button from '@material-ui/core/Button';
+import ResultsView from './ResultsView'
+import Attack from "../Helpers/Attack";
 
-import Damage from "../Helpers/damage"
 
-import {d4,d6,d8,d20} from "../Helpers/dice"
-
-// Constants
-const NORMAL_ROLL  = "norm"
-const ADVANTAGE    = "adv"
-const DISADVANTAGE = "disadv"
+import {NORMAL_ROLL,ADVANTAGE,DISADVANTAGE} from "../Helpers/AdvantageEnum"
 
 const DEFAULT_STATE = {
     advantage         : NORMAL_ROLL,
@@ -41,10 +37,9 @@ const useStyles = makeStyles((theme) => ({
 
 function MaximusForm()
 {
-    const [result, setResult] = React.useState("...")
+    const [attack, setAttack] = React.useState(null)
     const classes = useStyles();
 
-    let dmg = new Damage()
       const [state, setState] = React.useState(DEFAULT_STATE);
     
       const handleChange = (event) => {
@@ -57,11 +52,14 @@ function MaximusForm()
 
 
       const roll =()=>{
-        setResult(JSON.stringify(state))
+        let attack = new Attack(state) 
+        attack.doAttack()
+        setAttack(attack)
+
       }
       const reset = ()=>{
           setState(DEFAULT_STATE)
-          setResult("...")
+          setAttack(null)
       }
 
 
@@ -71,8 +69,8 @@ function MaximusForm()
             <FormControl component="fieldset">
                 <FormLabel component="legend">Advantage / Disadvantage</FormLabel>
                 <RadioGroup aria-label="Advantage" name="Advantage" value={state.advantage} onChange={handleAdvantageChange}>
-                    <FormControlLabel value={NORMAL_ROLL} control={<Radio />} name="advantage" label="None" />
-                    <FormControlLabel value={ADVANTAGE} control={<Radio />} name="advantage" label="Advantage" />
+                    <FormControlLabel value={NORMAL_ROLL}  control={<Radio />} name="advantage" label="None" />
+                    <FormControlLabel value={ADVANTAGE}    control={<Radio />} name="advantage" label="Advantage" />
                     <FormControlLabel value={DISADVANTAGE} control={<Radio />} name="advantage" label="Disadvantage" />
                 </RadioGroup>
 
@@ -124,12 +122,11 @@ function MaximusForm()
             <div>
             <Card variant="outlined">
                 <CardContent>
-                    <Typography>{result}</Typography>
+                    <ResultsView attack={attack}/>
                 </CardContent>
             </Card>
             </div>
         </div>
     )
 }
-
 export default MaximusForm
