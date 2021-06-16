@@ -1,8 +1,6 @@
 import React from 'react';
 
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
+
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -120,11 +118,7 @@ function MaximusForm()
             </div>
 
             <div>
-            <Card variant="outlined">
-                <CardContent>
-                    <ResultsView attack={attack}/>
-                </CardContent>
-            </Card>
+            <ResultsView attack={attack}/>
             </div>
         </div>
     )

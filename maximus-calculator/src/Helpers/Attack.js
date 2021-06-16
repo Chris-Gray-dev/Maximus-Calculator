@@ -20,7 +20,7 @@ class Attack
         this.#RADIANT_CONSUMPTION_DMG = 11
 
         this.IsCrit = false
-
+        this.IsFail = false
         // Numbers
         this.ToHit       = 0
         this.TotalDamage = 0 
@@ -64,6 +64,10 @@ class Attack
         if(toHit === 20)
         {
             this.IsCrit = true
+        }
+        else if(toHit === 1)
+        {
+            this.IsFail = true
         }
 
         this.ToHit = toHit + this.#TO_HIT
