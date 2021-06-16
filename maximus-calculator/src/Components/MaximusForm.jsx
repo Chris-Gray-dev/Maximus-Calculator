@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -38,27 +37,27 @@ function MaximusForm()
     const [attack, setAttack] = React.useState(null)
     const classes = useStyles();
 
-      const [state, setState] = React.useState(DEFAULT_STATE);
+    const [state, setState] = React.useState(DEFAULT_STATE);
+
+    const handleChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.checked });
+    };
+
+    const handleAdvantageChange = (event) => {
+    setState({ ...state, [event.target.name]: event.target.value })
+    };
+
+
+    const roll =()=>{
+    let attack = new Attack(state) 
+    attack.doAttack()
+    setAttack(attack)
+    }
     
-      const handleChange = (event) => {
-        setState({ ...state, [event.target.name]: event.target.checked });
-      };
-
-      const handleAdvantageChange = (event) => {
-        setState({ ...state, [event.target.name]: event.target.value })
-      };
-
-
-      const roll =()=>{
-        let attack = new Attack(state) 
-        attack.doAttack()
-        setAttack(attack)
-
-      }
-      const reset = ()=>{
-          setState(DEFAULT_STATE)
-          setAttack(null)
-      }
+    const reset = ()=>{
+        setState(DEFAULT_STATE)
+        setAttack(null)
+    }
 
 
     return(

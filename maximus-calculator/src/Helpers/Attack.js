@@ -3,21 +3,16 @@ import {d4,d6,d8,d20} from "./dice"
 
 class Attack
 {
-    #TO_HIT
-    #TO_DMG
-    #DIVINE_FURY_DMG
-    #RAGE_DMG
-    #RADIANT_CONSUMPTION_DMG
 
     constructor(state)
     {
         this.state = state
 
-        this.#TO_HIT = 13
-        this.#TO_DMG = 9
-        this.#DIVINE_FURY_DMG = 4   
-        this.#RAGE_DMG = 2
-        this.#RADIANT_CONSUMPTION_DMG = 11
+        this.TO_HIT = 13
+        this.TO_DMG = 9
+        this.DIVINE_FURY_DMG = 4   
+        this.RAGE_DMG = 2
+        this.RADIANT_CONSUMPTION_DMG = 11
 
         this.IsCrit = false
         this.IsFail = false
@@ -49,16 +44,19 @@ class Attack
         else
         {
             let toHitArray = [d20(),d20()]
-            this.AttackDice = toHitArray
-
+            
             if(this.state.advantage === ADVANTAGE)
             {
                 toHit = Math.max(...toHitArray)
+                toHitArray.sort(function(a, b){return b - a})
             }
             else
             {
                 toHit = Math.min(...toHitArray)
+                toHitArray.sort(function(a, b){return a - b})
             }
+            this.AttackDice = toHitArray
+
         }
 
         if(toHit === 20)
@@ -70,7 +68,7 @@ class Attack
             this.IsFail = true
         }
 
-        this.ToHit = toHit + this.#TO_HIT
+        this.ToHit = toHit + this.TO_HIT
     }
 
     #CalcFistDamage()
@@ -86,7 +84,7 @@ class Attack
             this.Bludgeoning += roll2
         }
 
-        this.Bludgeoning += this.#TO_DMG 
+        this.Bludgeoning += this.TO_DMG 
     }
 
     #CalcDivineFuryDamage()
@@ -104,7 +102,7 @@ class Attack
                 this.Radiant += roll2
             }
 
-            this.Radiant += this.#DIVINE_FURY_DMG
+            this.Radiant += this.DIVINE_FURY_DMG
         }
     }
 
@@ -163,7 +161,7 @@ class Attack
     {
         if(this.state.rage)
         {
-            this.Bludgeoning += this.#RAGE_DMG
+            this.Bludgeoning += this.RAGE_DMG
         }
     }
 
@@ -171,7 +169,7 @@ class Attack
     {
         if(this.state.radiantConsumption)
         {
-            this.Radiant += this.#RADIANT_CONSUMPTION_DMG
+            this.Radiant += this.RADIANT_CONSUMPTION_DMG
         }
     }
 
