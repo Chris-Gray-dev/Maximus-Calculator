@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { withStyles } from '@material-ui/core/styles';
 import { makeStyles } from '@material-ui/core/styles';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -10,9 +10,43 @@ import Switch from '@material-ui/core/Switch';
 import Button from '@material-ui/core/Button';
 import ResultsView from './ResultsView'
 import Attack from "../Helpers/Attack";
-
+import { orange } from '@material-ui/core/colors';
 
 import {NORMAL_ROLL,ADVANTAGE,DISADVANTAGE} from "../Helpers/AdvantageEnum"
+
+const OrangeButton = withStyles((theme) => ({
+    root: {
+      color: theme.palette.getContrastText(orange[500]),
+      backgroundColor: orange[500],
+      '&:hover': {
+        backgroundColor: orange[700],
+      },
+    },
+  }))(Button);
+
+const OrangeSwitch = withStyles({
+    switchBase: {
+      color: orange[300],
+      '&$checked': {
+        color: orange[500],
+      },
+      '&$checked + $track': {
+        backgroundColor: orange[500],
+      },
+    },
+    checked: {},
+    track: {},
+  })(Switch);
+
+  const OrangeRadio = withStyles({
+    root: {
+      color: orange[400],
+      '&$checked': {
+        color: orange[600],
+      },
+    },
+    checked: {},
+  })((props) => <Radio color="default" {...props} />);
 
 const DEFAULT_STATE = {
     advantage         : NORMAL_ROLL,
@@ -53,7 +87,7 @@ function MaximusForm()
     attack.doAttack()
     setAttack(attack)
     }
-    
+
     const reset = ()=>{
         setState(DEFAULT_STATE)
         setAttack(null)
@@ -66,9 +100,9 @@ function MaximusForm()
             <FormControl component="fieldset">
                 <FormLabel component="legend">Advantage / Disadvantage</FormLabel>
                 <RadioGroup aria-label="Advantage" name="Advantage" value={state.advantage} onChange={handleAdvantageChange}>
-                    <FormControlLabel value={NORMAL_ROLL}  control={<Radio />} name="advantage" label="None" />
-                    <FormControlLabel value={ADVANTAGE}    control={<Radio />} name="advantage" label="Advantage" />
-                    <FormControlLabel value={DISADVANTAGE} control={<Radio />} name="advantage" label="Disadvantage" />
+                    <FormControlLabel value={NORMAL_ROLL}  control={<OrangeRadio />} name="advantage" label="None" />
+                    <FormControlLabel value={ADVANTAGE}    control={<OrangeRadio />} name="advantage" label="Advantage" />
+                    <FormControlLabel value={DISADVANTAGE} control={<OrangeRadio />} name="advantage" label="Disadvantage" />
                 </RadioGroup>
 
                 <br/>
@@ -79,15 +113,15 @@ function MaximusForm()
 
                 <FormLabel component="legend">Every hit</FormLabel>
                 <FormControlLabel
-                    control={<Switch checked={state.rage} onChange={handleChange} name="rage" />}
+                    control={<OrangeSwitch checked={state.rage} onChange={handleChange} name="rage" />}
                     label="Rage (+2 bludgeoning)"
                 />
                 <FormControlLabel
-                    control={<Switch checked={state.eldritchMaul} onChange={handleChange} name="eldritchMaul" />}
+                    control={<OrangeSwitch checked={state.eldritchMaul} onChange={handleChange} name="eldritchMaul" />}
                     label="Eldritch Maul (+1d6 force)"
                 />
                 <FormControlLabel
-                    control={<Switch checked={state.potionOfGrowth} onChange={handleChange} name="potionOfGrowth" />}
+                    control={<OrangeSwitch checked={state.potionOfGrowth} onChange={handleChange} name="potionOfGrowth" />}
                     label="Potion of Growth (+1d4 bludegoning)"
                 />
 
@@ -95,22 +129,22 @@ function MaximusForm()
                 
                 <FormLabel component="legend">Once per turn</FormLabel>
                 <FormControlLabel
-                    control={<Switch checked={state.divineFury} onChange={handleChange} name="divineFury" />}
+                    control={<OrangeSwitch checked={state.divineFury} onChange={handleChange} name="divineFury" />}
                     label="Divine Fury (+1d6+4 radiant)"
                 />
                 <FormControlLabel
-                    control={<Switch checked={state.giantsMight} onChange={handleChange} name="giantsMight" />}
+                    control={<OrangeSwitch checked={state.giantsMight} onChange={handleChange} name="giantsMight" />}
                     label="Giants Might (+1d6 bludgeoning)"
                 />
                 <FormControlLabel
-                    control={<Switch checked={state.radiantConsumption} onChange={handleChange} name="radiantConsumption" />}
+                    control={<OrangeSwitch checked={state.radiantConsumption} onChange={handleChange} name="radiantConsumption" />}
                     label="Radiant Consumption (+11 radiant)"
                 />
 
                 <br/>
                 
                 <div className={classes.root}>
-                    <Button variant="contained" color="primary" onClick={roll} >Roll</Button>
+                    <OrangeButton variant="contained" onClick={roll} >Roll</OrangeButton>
                     <Button variant="contained" onClick={reset}>Reset</Button>
                 </div>
             </FormControl>
