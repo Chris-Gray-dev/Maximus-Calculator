@@ -114,7 +114,7 @@ function MaximusForm()
                 <FormLabel component="legend">Every hit</FormLabel>
                 <FormControlLabel
                     control={<OrangeSwitch checked={state.rage} onChange={handleChange} name="rage" />}
-                    label="Rage (+2 bludgeoning)"
+                    label="Rage (+3 bludgeoning)"
                 />
                 <FormControlLabel
                     control={<OrangeSwitch checked={state.eldritchMaul} onChange={handleChange} name="eldritchMaul" />}

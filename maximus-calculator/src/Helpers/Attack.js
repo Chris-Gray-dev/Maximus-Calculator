@@ -11,7 +11,7 @@ class Attack
         this.TO_HIT = 13
         this.TO_DMG = 9
         this.DIVINE_FURY_DMG = 4   
-        this.RAGE_DMG = 2
+        this.RAGE_DMG = 3
         this.RADIANT_CONSUMPTION_DMG = 11
 
         this.IsCrit = false
@@ -25,7 +25,7 @@ class Attack
 
         // Dice
         this.AttackDice         = [0,0]
-        this.FistDice           = [0,0]
+        this.FistDice           = [0,0,0]
         this.GiantsMightDice    = [0,0]
         this.PotionOfGrowthDice = [0,0]
         this.EldritchMaulDice   = [0,0]
@@ -80,8 +80,13 @@ class Attack
         if(this.IsCrit)
         {
             let roll2 = d8()
+            let roll3 = d8()
+
             this.FistDice[1] = roll2
-            this.Bludgeoning += roll2
+            this.FistDice[2] = roll3
+
+            this.Bludgeoning += roll2 
+            this.Bludgeoning += roll3
         }
 
         this.Bludgeoning += this.TO_DMG 
