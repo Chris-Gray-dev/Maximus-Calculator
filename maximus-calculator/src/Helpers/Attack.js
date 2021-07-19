@@ -12,7 +12,7 @@ class Attack
         this.TO_DMG = 9
         this.DIVINE_FURY_DMG = 4   
         this.RAGE_DMG = 3
-        this.RADIANT_CONSUMPTION_DMG = 11
+        this.RADIANT_CONSUMPTION_DMG = 12;
 
         this.IsCrit = false
         this.IsFail = false

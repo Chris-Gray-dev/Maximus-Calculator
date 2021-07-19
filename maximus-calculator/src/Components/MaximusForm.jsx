@@ -94,66 +94,126 @@ function MaximusForm()
     }
 
 
-    return(
+    return (
+      <div className={classes.root}>
         <div className={classes.root}>
+          <FormControl component="fieldset">
+            <FormLabel component="legend">Advantage / Disadvantage</FormLabel>
+            <RadioGroup
+              aria-label="Advantage"
+              name="Advantage"
+              value={state.advantage}
+              onChange={handleAdvantageChange}
+            >
+              <FormControlLabel
+                value={NORMAL_ROLL}
+                control={<OrangeRadio />}
+                name="advantage"
+                label="None"
+              />
+              <FormControlLabel
+                value={ADVANTAGE}
+                control={<OrangeRadio />}
+                name="advantage"
+                label="Advantage"
+              />
+              <FormControlLabel
+                value={DISADVANTAGE}
+                control={<OrangeRadio />}
+                name="advantage"
+                label="Disadvantage"
+              />
+            </RadioGroup>
+
+            <br />
+
+            <FormLabel component="legend">Modifiers</FormLabel>
+
+            <br />
+
+            <FormLabel component="legend">Every hit</FormLabel>
+            <FormControlLabel
+              control={
+                <OrangeSwitch
+                  checked={state.rage}
+                  onChange={handleChange}
+                  name="rage"
+                />
+              }
+              label="Rage (+3 bludgeoning)"
+            />
+            <FormControlLabel
+              control={
+                <OrangeSwitch
+                  checked={state.eldritchMaul}
+                  onChange={handleChange}
+                  name="eldritchMaul"
+                />
+              }
+              label="Eldritch Maul (+1d6 force)"
+            />
+            <FormControlLabel
+              control={
+                <OrangeSwitch
+                  checked={state.potionOfGrowth}
+                  onChange={handleChange}
+                  name="potionOfGrowth"
+                />
+              }
+              label="Potion of Growth (+1d4 bludegoning)"
+            />
+
+            <br />
+
+            <FormLabel component="legend">Once per turn</FormLabel>
+            <FormControlLabel
+              control={
+                <OrangeSwitch
+                  checked={state.divineFury}
+                  onChange={handleChange}
+                  name="divineFury"
+                />
+              }
+              label="Divine Fury (+1d6+4 radiant)"
+            />
+            <FormControlLabel
+              control={
+                <OrangeSwitch
+                  checked={state.giantsMight}
+                  onChange={handleChange}
+                  name="giantsMight"
+                />
+              }
+              label="Giants Might (+1d6 bludgeoning)"
+            />
+            <FormControlLabel
+              control={
+                <OrangeSwitch
+                  checked={state.radiantConsumption}
+                  onChange={handleChange}
+                  name="radiantConsumption"
+                />
+              }
+              label="Radiant Consumption (+12 radiant)"
+            />
+
+            <br />
+
             <div className={classes.root}>
-            <FormControl component="fieldset">
-                <FormLabel component="legend">Advantage / Disadvantage</FormLabel>
-                <RadioGroup aria-label="Advantage" name="Advantage" value={state.advantage} onChange={handleAdvantageChange}>
-                    <FormControlLabel value={NORMAL_ROLL}  control={<OrangeRadio />} name="advantage" label="None" />
-                    <FormControlLabel value={ADVANTAGE}    control={<OrangeRadio />} name="advantage" label="Advantage" />
-                    <FormControlLabel value={DISADVANTAGE} control={<OrangeRadio />} name="advantage" label="Disadvantage" />
-                </RadioGroup>
-
-                <br/>
-
-                <FormLabel component="legend">Modifiers</FormLabel>
-                
-                <br/>
-
-                <FormLabel component="legend">Every hit</FormLabel>
-                <FormControlLabel
-                    control={<OrangeSwitch checked={state.rage} onChange={handleChange} name="rage" />}
-                    label="Rage (+3 bludgeoning)"
-                />
-                <FormControlLabel
-                    control={<OrangeSwitch checked={state.eldritchMaul} onChange={handleChange} name="eldritchMaul" />}
-                    label="Eldritch Maul (+1d6 force)"
-                />
-                <FormControlLabel
-                    control={<OrangeSwitch checked={state.potionOfGrowth} onChange={handleChange} name="potionOfGrowth" />}
-                    label="Potion of Growth (+1d4 bludegoning)"
-                />
-
-                <br/>
-                
-                <FormLabel component="legend">Once per turn</FormLabel>
-                <FormControlLabel
-                    control={<OrangeSwitch checked={state.divineFury} onChange={handleChange} name="divineFury" />}
-                    label="Divine Fury (+1d6+4 radiant)"
-                />
-                <FormControlLabel
-                    control={<OrangeSwitch checked={state.giantsMight} onChange={handleChange} name="giantsMight" />}
-                    label="Giants Might (+1d6 bludgeoning)"
-                />
-                <FormControlLabel
-                    control={<OrangeSwitch checked={state.radiantConsumption} onChange={handleChange} name="radiantConsumption" />}
-                    label="Radiant Consumption (+11 radiant)"
-                />
-
-                <br/>
-                
-                <div className={classes.root}>
-                    <OrangeButton variant="contained" onClick={roll} >Roll</OrangeButton>
-                    <Button variant="contained" onClick={reset}>Reset</Button>
-                </div>
-            </FormControl>
+              <OrangeButton variant="contained" onClick={roll}>
+                Roll
+              </OrangeButton>
+              <Button variant="contained" onClick={reset}>
+                Reset
+              </Button>
             </div>
-
-            <div>
-            <ResultsView attack={attack}/>
-            </div>
+          </FormControl>
         </div>
-    )
+
+        <div>
+          <ResultsView attack={attack} />
+        </div>
+      </div>
+    );
 }
 export default MaximusForm
