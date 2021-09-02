@@ -8,11 +8,11 @@ class Attack
     {
         this.state = state
 
-        this.TO_HIT = 13
-        this.TO_DMG = 9
-        this.DIVINE_FURY_DMG = 4   
-        this.RAGE_DMG = 3
-        this.RADIANT_CONSUMPTION_DMG = 12;
+        this.TO_HIT = 14;
+        this.TO_DMG = 9;
+        this.DIVINE_FURY_DMG = 5;
+        this.RAGE_DMG = 3;
+        this.RADIANT_CONSUMPTION_DMG = 13;
 
         this.IsCrit = false
         this.IsFail = false

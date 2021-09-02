@@ -174,7 +174,7 @@ function MaximusForm()
                   name="divineFury"
                 />
               }
-              label="Divine Fury (+1d6+4 radiant)"
+              label="Divine Fury (+1d6+5 radiant)"
             />
             <FormControlLabel
               control={
@@ -194,7 +194,7 @@ function MaximusForm()
                   name="radiantConsumption"
                 />
               }
-              label="Radiant Consumption (+12 radiant)"
+              label="Radiant Consumption (+13 radiant)"
             />
 
             <br />
